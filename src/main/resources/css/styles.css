@@ -1,0 +1,656 @@
+/* ================================ */
+/* STYLES FOR JBUDGET - ONLY USED */
+/* ================================ */
+
+.root {
+    -fx-background-color: #F8FAFC;
+    -fx-font-family: "Segoe UI", "System", "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ================================ */
+/* PAGE LAYOUT */
+/* ================================ */
+
+/* Main Containers */
+.budget-main-container {
+    -fx-background-color: #F8FAFC;
+}
+
+/* Header Sections */
+.budget-header-section {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+/* Page Titles */
+.page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.page-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #64748B;
+    -fx-font-style: italic;
+}
+
+/* Section Titles */
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F2937;
+}
+
+.section-icon {
+    -fx-font-size: 18px;
+}
+
+/* ================================ */
+/* CARDS SYSTEM */
+/* ================================ */
+
+/* Stats Cards */
+.stats-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-min-width: 200;
+    -fx-pref-width: 220;
+}
+
+.stats-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 12, 0, 0, 4);
+    -fx-cursor: hand;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Card Variants */
+.income-card {
+    -fx-border-color: #10B981;
+    -fx-border-width: 0 0 4 0;
+}
+
+.expense-card {
+    -fx-border-color: #EF4444;
+    -fx-border-width: 0 0 4 0;
+}
+
+.balance-card {
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 0 0 4 0;
+}
+
+/* Financial Cards (Budget View) */
+.financial-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-min-width: 280;
+}
+
+.financial-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 12, 0, 0, 4);
+}
+
+/* Card Content */
+.card-icon {
+    -fx-font-size: 20px;
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374155;
+}
+
+.card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6B7280;
+    -fx-font-style: italic;
+}
+
+.amount-display {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* ================================ */
+/* CONTROLS */
+/* ================================ */
+
+/* Control Sections */
+.budget-controls {
+    -fx-background-color: #F8FAFC;
+    -fx-padding: 15;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+}
+
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6B7280;
+    -fx-text-transform: uppercase;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #3B82F6;
+    -fx-text-fill: white;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #2563EB;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 4, 0, 0, 2);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: #1D4ED8;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Button Variants */
+.button-large {
+    -fx-padding: 14 24;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-success {
+    -fx-background-color: #10B981;
+}
+
+.button-success:hover {
+    -fx-background-color: #059669;
+}
+
+.button-warning {
+    -fx-background-color: #F59E0B;
+}
+
+.button-warning:hover {
+    -fx-background-color: #D97706;
+}
+
+.button-info {
+    -fx-background-color: #06B6D4;
+}
+
+.button-info:hover {
+    -fx-background-color: #0891B2;
+}
+
+.button-secondary {
+    -fx-background-color: #6B7280;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #4B5563;
+}
+
+/* ================================ */
+/* FORM CONTROLS */
+/* ================================ */
+
+.text-field, .combo-box {
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14;
+    -fx-background-color: white;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 2, 0, 0, 1);
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, rgba(59,130,246,0.25), 6, 0, 0, 0);
+}
+
+.budget-period-combo {
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14;
+    -fx-background-color: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+/* ================================ */
+/* TABLES */
+/* ================================ */
+
+.enhanced-table {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+.enhanced-table .column-header {
+    -fx-background-color: #F8FAFC;
+    -fx-border-color: #E2E8F0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374155;
+    -fx-padding: 15 10;
+    -fx-font-size: 14px;
+}
+
+.enhanced-table .column-header-background {
+    -fx-background-color: #F8FAFC;
+}
+
+.enhanced-table .table-row-cell {
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 0;
+    -fx-background-color: white;
+}
+
+.enhanced-table .table-row-cell:hover {
+    -fx-background-color: #F8FAFC;
+}
+
+.enhanced-table .table-row-cell:selected {
+    -fx-background-color: #EBF4FF;
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 2;
+}
+
+.enhanced-table .table-cell {
+    -fx-padding: 8 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ================================ */
+/* SECTIONS */
+/* ================================ */
+
+.table-section, .financial-overview-section,
+.budget-status-section, .category-analysis-section {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+
+/* ================================ */
+/* EMPTY STATES */
+/* ================================ */
+
+.empty-state {
+    -fx-padding: 40;
+    -fx-alignment: CENTER;
+}
+
+.no-budget-container, .no-data-container {
+    -fx-background-color: #F9FAFB;
+    -fx-padding: 40;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+}
+
+.empty-state-icon {
+    -fx-font-size: 48px;
+    -fx-text-fill: #9CA3AF;
+}
+
+.empty-state-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374155;
+}
+
+.empty-state-description {
+    -fx-font-size: 15px;
+    -fx-text-fill: #6B7280;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+    -fx-max-width: 400;
+}
+
+.empty-state-button {
+    -fx-font-size: 16px;
+    -fx-padding: 14 28;
+    -fx-font-weight: bold;
+}
+
+/* ================================ */
+/* BUDGET SPECIFIC STYLES */
+/* ================================ */
+
+/* Budget Overview Cards */
+.budget-overview-card, .budget-progress-card {
+    -fx-background-color: #F8FAFC;
+    -fx-padding: 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+}
+
+.card-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F2937;
+}
+
+.budget-info-grid {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 1;
+}
+
+/* Budget Value Labels */
+.budget-name-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F2937;
+}
+
+.budget-amount-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3B82F6;
+}
+
+.budget-spent-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #EF4444;
+}
+
+.budget-remaining-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #10B981;
+}
+
+/* Progress Elements */
+.progress-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374155;
+}
+
+.progress-percentage {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F2937;
+}
+
+.budget-progress-bar {
+    -fx-background-color: #E5E7EB;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.budget-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #10B981 0%, #F59E0B 70%, #EF4444 90%);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.income-progress .bar {
+    -fx-background-color: #10B981;
+}
+
+.expense-progress .bar {
+    -fx-background-color: #EF4444;
+}
+
+/* ================================ */
+/* WARNING ALERTS */
+/* ================================ */
+
+.budget-warning-alert {
+    -fx-background-color: #FEF3C7;
+    -fx-padding: 18;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 2;
+}
+
+.warning-alert-icon {
+    -fx-font-size: 24px;
+    -fx-text-fill: #D97706;
+}
+
+.warning-alert-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #92400E;
+}
+
+.warning-alert-message {
+    -fx-font-size: 14px;
+    -fx-text-fill: #B45309;
+}
+
+/* ================================ */
+/* MOVEMENT SPECIFIC STYLES */
+/* ================================ */
+
+.stats-section {
+    -fx-background-color: #F8FAFC;
+    -fx-padding: 15;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+}
+
+.section-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374155;
+}
+
+.controls-section {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 4, 0, 0, 1);
+}
+
+.hint-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6B7280;
+}
+
+.hint-text {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9CA3AF;
+    -fx-font-style: italic;
+}
+
+.stats-number {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F2937;
+}
+
+.warning-card {
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 0 0 3 0;
+}
+
+.warning-card .stats-number {
+    -fx-text-fill: #D97706;
+}
+
+/* ================================ */
+/* LABELS */
+/* ================================ */
+
+.stats-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #374155;
+}
+
+.stats-value {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #1F2937;
+}
+
+.table-info {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6B7280;
+    -fx-font-weight: 500;
+}
+
+/* Amount Labels */
+.amount-positive {
+    -fx-text-fill: #10B981;
+    -fx-font-weight: bold;
+}
+
+.amount-negative {
+    -fx-text-fill: #EF4444;
+    -fx-font-weight: bold;
+}
+
+.amount-balance {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.savings-rate {
+    -fx-text-fill: #8B5CF6;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* ================================ */
+/* SCROLL PANES */
+/* ================================ */
+
+.budget-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.budget-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.budget-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: #F1F5F9;
+    -fx-border-color: transparent;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-pref-width: 12;
+}
+
+.budget-scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #E2E8F0;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.budget-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #CBD5E1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.budget-scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #94A3B8;
+}
+
+.budget-scroll-pane .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #64748B;
+}
+
+/* ================================ */
+/* HEADER STYLES */
+/* ================================ */
+
+.header {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 1);
+    -fx-padding: 15 20;
+}
+
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.app-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748B;
+}
+
+.notifications {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-color: #F1F5F9;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+/* ================================ */
+/* ACCESSIBILITY */
+/* ================================ */
+
+.button:focused {
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 3;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-width: 2;
+    -fx-border-color: #3B82F6;
+}

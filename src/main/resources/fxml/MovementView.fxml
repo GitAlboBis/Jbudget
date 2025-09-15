@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.jbudget123718.jbudget.ui.controllers.MovementController"
+      spacing="15.0">
+
+    <padding><Insets topRightBottomLeft="20.0" /></padding>
+
+    <!-- Header con Titolo -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Label text="💳 Gestione Movimenti Finanziari" styleClass="page-title" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="Registra entrate, uscite e gestisci i tuoi prestiti" styleClass="page-subtitle" />
+    </HBox>
+
+    <!-- Controlli Principali -->
+    <HBox spacing="15.0" alignment="CENTER_LEFT" styleClass="controls-section">
+
+        <!-- Sezione Movimenti Standard -->
+        <VBox spacing="8.0">
+            <Label text="📊 Movimenti Standard" styleClass="section-label" />
+            <HBox spacing="10.0">
+                <Button fx:id="addMovementBtn" text="➕ Nuovo Movimento" onAction="#onAddMovement"
+                        styleClass="button-success" />
+                <Button fx:id="deleteMovementBtn" text="🗑️ Elimina" styleClass="button-warning"
+                        onAction="#onDeleteMovement" />
+            </HBox>
+        </VBox>
+
+        <Separator orientation="VERTICAL" />
+
+        <!-- Sezione Prestiti -->
+        <VBox spacing="8.0">
+            <Label text="🏦 Gestione Prestiti" styleClass="section-label" />
+            <HBox spacing="10.0">
+                <Button fx:id="createLoanBtn" text="🏦 Nuovo Prestito" onAction="#onCreateLoan"
+                        styleClass="button-info" />
+                <Button fx:id="viewLoansBtn" text="📋 Visualizza Prestiti" onAction="#onViewLoans"
+                        styleClass="button-secondary" />
+            </HBox>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Info e Suggerimenti -->
+        <VBox spacing="5.0" alignment="CENTER_RIGHT">
+            <Label text="💡 Suggerimenti:" styleClass="hint-label" />
+            <Label text="• Usa 'Nuovo Movimento' per entrate/uscite e pagamenti rate prestiti" styleClass="hint-text" />
+            <Label text="• Usa 'Visualizza Prestiti' per visualizzare il piano di ammortamento" styleClass="hint-text" />
+        </VBox>
+    </HBox>
+
+    <!-- Sezione Statistiche Rapide -->
+    <HBox spacing="20.0" styleClass="stats-section">
+
+        <!-- Card Movimenti Totali -->
+        <VBox spacing="8.0" styleClass="stats-card">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="📊" styleClass="card-icon" />
+                <Label text="Movimenti Totali" styleClass="card-title" />
+            </HBox>
+            <Label fx:id="totalMovementsLabel" text="0" styleClass="stats-number" />
+            <Label text="Ultimi 6 mesi" styleClass="card-subtitle" />
+        </VBox>
+
+        <!-- Card Bilancio -->
+        <VBox spacing="8.0" styleClass="stats-card">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="⚖️" styleClass="card-icon" />
+                <Label text="Bilancio Netto" styleClass="card-title" />
+            </HBox>
+            <Label fx:id="netBalanceLabel" text="€ 0,00" styleClass="stats-number" />
+            <Label text="Entrate - Uscite" styleClass="card-subtitle" />
+        </VBox>
+
+        <!-- Card Prestiti Attivi -->
+        <VBox spacing="8.0" styleClass="stats-card">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="🏦" styleClass="card-icon" />
+                <Label text="Prestiti Attivi" styleClass="card-title" />
+            </HBox>
+            <Label fx:id="activeLoansLabel" text="0" styleClass="stats-number" />
+            <Label text="In corso di rimborso" styleClass="card-subtitle" />
+        </VBox>
+
+        <!-- Card Rate Scadute -->
+        <VBox spacing="8.0" styleClass="stats-card, warning-card">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="🚨" styleClass="card-icon" />
+                <Label text="Rate Scadute" styleClass="card-title" />
+            </HBox>
+            <Label fx:id="overduePaymentsLabel" text="0" styleClass="stats-number" />
+            <Label text="Richiedono attenzione" styleClass="card-subtitle" />
+        </VBox>
+
+    </HBox>
+
+    <!-- Tabella Movimenti -->
+    <VBox spacing="10.0" VBox.vgrow="ALWAYS" styleClass="table-section">
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label text="📋 Lista Movimenti" styleClass="section-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="tableInfoLabel" text="Mostra tutti i movimenti degli ultimi 6 mesi"
+                   styleClass="table-info" />
+        </HBox>
+
+        <TableView fx:id="movementsTable" VBox.vgrow="ALWAYS" styleClass="enhanced-table">
+            <columns>
+                <TableColumn fx:id="movNameCol" text="Nome Movimento" prefWidth="250.0" />
+                <TableColumn fx:id="movDateCol" text="Data" prefWidth="120.0" />
+                <TableColumn fx:id="movAmountCol" text="Importo" prefWidth="130.0" />
+                <TableColumn fx:id="movTypeCol" text="Tipo" prefWidth="120.0" />
+                <TableColumn fx:id="movCategoryCol" text="Categoria" prefWidth="150.0" />
+            </columns>
+
+            <!-- Empty state -->
+            <placeholder>
+                <VBox alignment="CENTER" spacing="15.0" styleClass="empty-state">
+                    <Label text="💳" styleClass="empty-state-icon" />
+                    <Label text="Nessun movimento trovato" styleClass="empty-state-title" />
+                    <Label text="Inizia registrando il tuo primo movimento finanziario o creando un prestito"
+                           styleClass="empty-state-description" />
+                    <HBox spacing="10.0" alignment="CENTER">
+                        <Button text="➕ Aggiungi Movimento" onAction="#onAddMovement"
+                                styleClass="button-success, empty-state-button" />
+                        <Button text="🏦 Crea Prestito" onAction="#onCreateLoan"
+                                styleClass="button-info, empty-state-button" />
+                    </HBox>
+                </VBox>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+</VBox>

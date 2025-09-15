@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.jbudget123718.jbudget.ui.controllers.ScadenzeController"
+      spacing="15.0">
+
+    <padding><Insets topRightBottomLeft="20.0" /></padding>
+
+    <!-- Controlli Scadenze -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Button fx:id="addScadenzaBtn" text="➕ Nuova Scadenza" onAction="#onAddScadenza" />
+        <Button fx:id="payScadenzaBtn" text="💰 Paga" styleClass="button-success" onAction="#onPayScadenza" />
+        <Button fx:id="deleteScadenzaBtn" text="🗑️ Elimina" styleClass="button-warning" onAction="#onDeleteScadenza" />
+        <Separator orientation="VERTICAL" />
+        <Button fx:id="updateStatusBtn" text="🔄 Aggiorna Status" styleClass="button-info" onAction="#onUpdateStatus" />
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <!-- Tabella Scadenze -->
+    <TableView fx:id="scadenzeTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="scadDescCol" text="Descrizione" prefWidth="300.0" />
+            <TableColumn fx:id="scadDateCol" text="Scadenza" prefWidth="120.0" />
+            <TableColumn fx:id="scadStatusCol" text="Status" prefWidth="150.0" />
+        </columns>
+    </TableView>
+
+</VBox>

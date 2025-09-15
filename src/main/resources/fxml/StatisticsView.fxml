@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.jbudget123718.jbudget.ui.controllers.StatisticsController"
+      spacing="20.0">
+
+    <padding><Insets topRightBottomLeft="20.0" /></padding>
+
+    <!-- Controlli periodo -->
+    <HBox spacing="15.0" alignment="CENTER_LEFT">
+        <Label text="Periodo:" styleClass="label-bold" />
+        <ComboBox fx:id="periodCombo" prefWidth="150.0" />
+        <Button fx:id="refreshStatsBtn" text="🔄 Aggiorna" onAction="#onRefreshStats" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="Statistiche dettagliate con grafici" styleClass="hint-text" />
+    </HBox>
+
+    <!-- Statistiche Principali -->
+    <GridPane hgap="40.0" vgap="25.0" styleClass="stats-grid">
+        <!-- Prima riga: Entrate e Uscite -->
+        <Label text="💰 Entrate Totali:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="stats-label" />
+        <Label fx:id="totalIncomeLabel" text="€ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="amount-positive" />
+
+        <Label text="💸 Uscite Totali:" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="stats-label" />
+        <Label fx:id="totalExpensesLabel" text="€ 0,00" GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="amount-negative" />
+
+        <!-- Seconda riga: Bilancio e Tasso Risparmio -->
+        <Label text="⚖️ Bilancio:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="stats-label" />
+        <Label fx:id="balanceLabel" text="€ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="amount-balance" />
+
+        <Label text="💎 Tasso Risparmio:" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="stats-label" />
+        <Label fx:id="savingsRateLabel" text="0%" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="stats-value" />
+    </GridPane>
+
+    <!-- Grafici -->
+    <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+
+        <!-- Grafico a Torta - Spese per Categoria -->
+        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label text="📊 Spese per Categoria" styleClass="section-title" />
+            <PieChart fx:id="expensesByCategoryChart" VBox.vgrow="ALWAYS" minHeight="300" />
+        </VBox>
+
+        <!-- Grafico a Barre - Andamento Mensile -->
+        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label text="📈 Andamento Ultimi Mesi" styleClass="section-title" />
+            <BarChart fx:id="monthlyTrendChart" VBox.vgrow="ALWAYS" minHeight="300">
+                <xAxis>
+                    <CategoryAxis fx:id="monthAxis" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="amountAxis" />
+                </yAxis>
+            </BarChart>
+        </VBox>
+
+    </HBox>
+
+    <!-- Dettagli per Categoria -->
+    <VBox spacing="10.0" styleClass="info-section">
+        <Label text="📋 Dettaglio Spese per Categoria" styleClass="section-title" />
+
+        <GridPane fx:id="categoryDetailsGrid" hgap="30.0" vgap="15.0">
+            <!-- I dettagli verranno aggiunti dinamicamente -->
+        </GridPane>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.unicam.cs.mpgc.jbudget123718.jbudget.ui.controllers.BudgetController"
+            fitToWidth="true" styleClass="budget-scroll-pane">
+
+    <VBox spacing="25.0" styleClass="budget-main-container">
+
+        <padding><Insets topRightBottomLeft="25.0" /></padding>
+
+        <!-- ===================================== -->
+        <!-- HEADER SECTION -->
+        <!-- ===================================== -->
+        <VBox spacing="15.0" styleClass="budget-header-section">
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+                <Label text="📊" styleClass="page-icon" />
+                <Label text="Dashboard Budget" styleClass="page-title" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Monitora e controlla le tue finanze" styleClass="page-subtitle" />
+            </HBox>
+
+            <!-- Period Controls -->
+            <HBox spacing="15.0" alignment="CENTER_LEFT" styleClass="budget-controls">
+                <VBox spacing="5.0">
+                    <Label text="Periodo di Analisi:" styleClass="field-label" />
+                    <ComboBox fx:id="budgetPeriodCombo" prefWidth="180.0" styleClass="budget-period-combo" />
+                </VBox>
+
+                <VBox spacing="5.0">
+                    <Label text="Azioni:" styleClass="field-label" />
+                    <HBox spacing="10.0">
+                        <Button fx:id="refreshBudgetBtn" text="🔄 Aggiorna" onAction="#onRefreshBudget"
+                                styleClass="button-secondary" />
+                        <Button fx:id="createBudgetBtn" text="➕ Nuovo Budget" onAction="#onCreateBudget"
+                                styleClass="button-success, button-large" />
+                        <Button fx:id="manageBudgetsBtn" text="⚙️ Gestisci Budget" onAction="#onManageBudgets" />
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- ===================================== -->
+        <!-- PANORAMICA FINANZIARIA -->
+        <!-- ===================================== -->
+        <VBox spacing="20.0" styleClass="financial-overview-section">
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Label text="💰" styleClass="section-icon" />
+                <Label text="Panoramica Finanziaria" styleClass="section-title" />
+                <Region HBox.hgrow="ALWAYS" />
+
+            </HBox>
+
+            <!-- Financial Cards Grid -->
+            <HBox spacing="20.0">
+
+                <!-- Card Entrate -->
+                <VBox styleClass="financial-card, income-card" spacing="12.0" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <Label text="📈" styleClass="card-icon" />
+                        <VBox spacing="2.0">
+                            <Label text="Entrate Totali" styleClass="card-title" />
+                            <Label text="Denaro ricevuto" styleClass="card-subtitle" />
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="totalIncomeLabel" text="€ 0,00" styleClass="amount-display, amount-positive" />
+                    <ProgressBar fx:id="incomeProgressBar" prefWidth="200.0" progress="0.0"
+                                 styleClass="income-progress" />
+                </VBox>
+
+                <!-- Card Uscite -->
+                <VBox styleClass="financial-card, expense-card" spacing="12.0" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <Label text="📉" styleClass="card-icon" />
+                        <VBox spacing="2.0">
+                            <Label text="Uscite Totali" styleClass="card-title" />
+                            <Label text="Denaro speso" styleClass="card-subtitle" />
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="totalExpensesLabel" text="€ 0,00" styleClass="amount-display, amount-negative" />
+                    <ProgressBar fx:id="expensesProgressBar" prefWidth="200.0" progress="0.0"
+                                 styleClass="expense-progress" />
+                </VBox>
+
+                <!-- Card Bilancio -->
+                <VBox styleClass="financial-card, balance-card" spacing="12.0" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <Label text="⚖️" styleClass="card-icon" />
+                        <VBox spacing="2.0">
+                            <Label text="Bilancio Netto" styleClass="card-title" />
+                            <Label text="Entrate - Uscite" styleClass="card-subtitle" />
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="currentBalanceLabel" text="€ 0,00" styleClass="amount-display, amount-balance" />
+                    <HBox alignment="CENTER_LEFT" spacing="8.0">
+                        <Label text="Tasso risparmio:" styleClass="footer-text" />
+                        <Label fx:id="savingsRateLabel" text="0%" styleClass="savings-rate" />
+                    </HBox>
+                </VBox>
+
+            </HBox>
+        </VBox>
+
+        <!-- ===================================== -->
+        <!-- STATUS BUDGET PRINCIPALE -->
+        <!-- ===================================== -->
+        <VBox spacing="20.0" styleClass="budget-status-section">
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Label text="🎯" styleClass="section-icon" />
+                <Label text="Stato Budget Attuale" styleClass="section-title" />
+            </HBox>
+
+            <!-- ===================================== -->
+            <!-- BUDGET OVERVIEW CARDS - SPOSTATE QUI IN ALTO -->
+            <!-- ===================================== -->
+            <HBox spacing="20.0">
+
+                <!-- Informazioni Budget -->
+                <VBox styleClass="budget-overview-card" spacing="15.0" HBox.hgrow="ALWAYS">
+                    <Label text="💼 Informazioni Budget" styleClass="card-section-title" />
+
+                    <GridPane styleClass="budget-info-grid" hgap="20.0" vgap="15.0">
+                        <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="stats-label" />
+                        <Label fx:id="budgetNameLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                               styleClass="budget-name-value" />
+
+                        <Label text="Budget Totale:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="stats-label" />
+                        <Label fx:id="budgetAmountLabel" text="€ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                               styleClass="budget-amount-value" />
+
+                        <Label text="Speso:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="stats-label" />
+                        <Label fx:id="budgetSpentLabel" text="€ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                               styleClass="budget-spent-value" />
+
+                        <Label text="Rimanente:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="stats-label" />
+                        <Label fx:id="budgetRemainingLabel" text="€ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                               styleClass="budget-remaining-value" />
+                    </GridPane>
+                </VBox>
+
+                <!-- Progress Card -->
+                <VBox styleClass="budget-progress-card" spacing="15.0" HBox.hgrow="ALWAYS">
+                    <Label text="📊 Progresso Budget" styleClass="card-section-title" />
+
+                    <VBox spacing="12.0">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Utilizzo:" styleClass="progress-label" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="budgetUsageLabel" text="0%" styleClass="progress-percentage" />
+                        </HBox>
+
+                        <ProgressBar fx:id="budgetProgressBar" prefWidth="300.0" prefHeight="12.0"
+                                     styleClass="budget-progress-bar" />
+
+                        <!-- Progress Legend -->
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <HBox spacing="5.0" alignment="CENTER_LEFT">
+                                <Region styleClass="progress-legend-green" />
+                                <Label text="Sicuro (0-60%)" styleClass="progress-legend-text" />
+                            </HBox>
+                            <HBox spacing="5.0" alignment="CENTER_LEFT">
+                                <Region styleClass="progress-legend-orange" />
+                                <Label text="Attenzione (60-90%)" styleClass="progress-legend-text" />
+                            </HBox>
+                            <HBox spacing="5.0" alignment="CENTER_LEFT">
+                                <Region styleClass="progress-legend-red" />
+                                <Label text="Superato (90%+)" styleClass="progress-legend-text" />
+                            </HBox>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+            </HBox>
+
+            <!-- Budget Container - ORA PIU IN BASSO -->
+            <VBox fx:id="budgetStatusContainer" spacing="20.0">
+
+                <!-- STATO: Nessun Budget -->
+                <VBox fx:id="noBudgetContainer" spacing="20.0" alignment="CENTER" styleClass="no-budget-container">
+                    <Label text="📋" styleClass="empty-state-icon" />
+                    <Label text="Nessun Budget Configurato" styleClass="empty-state-title" />
+                    <Label text="Crea il tuo primo budget per iniziare a monitorare le spese del periodo selezionato"
+                           styleClass="empty-state-description" />
+                    <Button text="🎯 Crea Primo Budget" onAction="#onCreateBudget"
+                            styleClass="button-success, empty-state-button" />
+                </VBox>
+
+                <!-- STATO: Budget Attivo -->
+                <VBox fx:id="budgetDetailsContainer" spacing="20.0" visible="false">
+
+                    <!-- Budget Warning Alert -->
+                    <HBox fx:id="budgetWarningContainer" spacing="15.0" alignment="CENTER_LEFT"
+                          styleClass="budget-warning-alert" visible="false">
+                        <Label text="⚠️" styleClass="warning-alert-icon" />
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                            <Label text="Attenzione Budget!" styleClass="warning-alert-title" />
+                            <Label fx:id="budgetWarningLabel" text="" styleClass="warning-alert-message" />
+                        </VBox>
+                    </HBox>
+
+                </VBox>
+            </VBox>
+        </VBox>
+
+        <!-- ===================================== -->
+        <!-- ANALISI PER CATEGORIA -->
+        <!-- ===================================== -->
+        <VBox spacing="20.0" styleClass="category-analysis-section">
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Label text="📈" styleClass="section-icon" />
+                <Label text="Analisi per Categoria" styleClass="section-title" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <!-- Category Cards Grid -->
+            <GridPane fx:id="categoryCardsGrid" hgap="15.0" vgap="15.0" styleClass="category-grid">
+                <!-- Le card delle categorie verranno generate dinamicamente -->
+            </GridPane>
+
+            <!-- Empty State for Categories -->
+            <VBox fx:id="noCategoryDataContainer" spacing="15.0" alignment="CENTER"
+                  styleClass="no-data-container" visible="false">
+                <Label text="📊" styleClass="empty-state-icon" />
+                <Label text="Nessun dato per categoria" styleClass="empty-state-title" />
+                <Label text="Aggiungi alcuni movimenti per vedere l'analisi per categoria"
+                       styleClass="empty-state-description" />
+            </VBox>
+        </VBox>
+
+    </VBox>
+
+</ScrollPane>

@@ -1,0 +1,874 @@
+2025-07-20 16:45:15.110696+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 16:49:05.335872+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 16:56:47.108865+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 16:59:48.885900+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:02:25.455842+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:09:15.300169+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:11:18.478021+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:15:31.645207+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:18:07.147277+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:18:36.801459+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:20:29.132597+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:22:51.829708+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:23:42.177460+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:28:06.729241+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:29:49.105544+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:30:37.651475+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:33:34.133735+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 17:39:35.975998+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-20 22:42:17.908659+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-23 21:53:31.857918+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2025-07-29 20:19:38.378257+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2025-09-04 18:31:55.498672+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2025-09-13 17:08:30.369601+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "STATUS"; SQL statement:
+    SELECT
+        COUNT(*) as total_loans,
+        COUNT(CASE WHEN status = 'ACTIVE' THEN 1 END) as active_loans,
+        SUM(CASE WHEN status = 'ACTIVE' THEN totalAmount ELSE 0 END) as total_debt,
+        COUNT(CASE WHEN lp.status = 'OVERDUE' THEN 1 END) as overdue_payments
+    FROM loans l
+    LEFT JOIN loan_payments lp ON l.id = lp.loanId
+ [90059-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:546)
+	at org.h2.expression.OperationN.mapColumns(OperationN.java:64)
+	at org.h2.expression.aggregate.AbstractAggregate.mapColumnsAnalysis(AbstractAggregate.java:90)
+	at org.h2.expression.aggregate.Aggregate.mapColumnsAnalysis(Aggregate.java:943)
+	at org.h2.expression.analysis.DataAnalysisOperation.mapColumns(DataAnalysisOperation.java:141)
+	at org.h2.expression.Alias.mapColumns(Alias.java:47)
+	at org.h2.command.query.Select.mapColumns(Select.java:1558)
+	at org.h2.command.query.Select.init(Select.java:1100)
+	at org.h2.command.Parser.parseQuery(Parser.java:2501)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.config.DatabaseInitializer.printDatabaseStats(DatabaseInitializer.java:314)
+	at it.unicam.cs.mpgc.jbudget123718.jbudget.JBudgetApplication.init(JBudgetApplication.java:58)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196)
+	at java.base/java.lang.Thread.run(Unknown Source)

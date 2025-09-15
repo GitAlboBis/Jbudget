@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.jbudget123718.jbudget.ui.controllers.MainController"
+      styleClass="root">
+
+    <!-- HEADER -->
+    <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20.0">
+        <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+        </padding>
+        <Label text="💰 JBudget" styleClass="app-title" />
+        <Label text="Gestione Budget Familiare" styleClass="app-subtitle" />
+        <Region HBox.hgrow="ALWAYS" />
+        <!-- Notifiche urgenti -->
+        <Label fx:id="notificationsLabel" text="" styleClass="notifications" visible="false" />
+    </HBox>
+
+    <!-- TAB PANE -->
+    <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- ================================ -->
+        <!-- TAB MOVIMENTI -->
+        <!-- ================================ -->
+        <Tab text="💳 Movimenti">
+            <fx:include source="MovementView.fxml" />
+        </Tab>
+
+        <!-- ================================ -->
+        <!-- TAB BUDGET -->
+        <!-- ================================ -->
+        <Tab text="📊 Budget">
+            <fx:include source="BudgetView.fxml" />
+        </Tab>
+
+        <!-- ================================ -->
+        <!-- TAB SCADENZE -->
+        <!-- ================================ -->
+        <Tab text="📅 Scadenze">
+            <fx:include source="ScadenzeView.fxml" />
+        </Tab>
+
+        <!-- ================================ -->
+        <!-- TAB STATISTICHE -->
+        <!-- ================================ -->
+        <Tab text="📈 Statistiche">
+            <fx:include source="StatisticsView.fxml" />
+        </Tab>
+
+    </TabPane>
+
+</VBox>
